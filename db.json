@@ -1,19 +1,27 @@
 {
-  "posts": [
+  "safes": [
     {
       "id": 1,
-      "title": "hello hello",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "name": "דרור",
+      "goalNumber": 100,
+      "goalAmount": "לגו",
+      "photoUrl": "https://c1.wallpaperflare.com/preview/664/611/663/child-happy-smiling-son-man-bebe.jpg"
+    },
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": "שחר",
+      "goalNumber": 70,
+      "goalAmount": "טרקטור",
+      "photoUrl": "https://c1.wallpaperflare.com/preview/664/611/663/child-happy-smiling-son-man-bebe.jpg"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "transactions": [
+    {
+      "id": 1,
+      "safeId": 1,
+      "amount": -10,
+      "type": 1,
+      "reason": "סליים"
+    }
+  ]
 }
