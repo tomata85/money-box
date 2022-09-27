@@ -1,3 +1,9 @@
 .safe {
   margin: 30px
 }
+
+.header {
+  /*rtl:ignore*/
+  direction:ltr;
+  /*rtl:ignore*/
+}
