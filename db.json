@@ -5,14 +5,14 @@
       "name": "דרור",
       "goalNumber": 100,
       "goalAmount": "לגו",
-      "photoUrl": "https://c1.wallpaperflare.com/preview/664/611/663/child-happy-smiling-son-man-bebe.jpg"
+      "photoUrl": "images/dror.jpeg"
     },
     {
-      "id": 1,
+      "id": 2,
       "name": "שחר",
       "goalNumber": 70,
       "goalAmount": "טרקטור",
-      "photoUrl": "https://c1.wallpaperflare.com/preview/664/611/663/child-happy-smiling-son-man-bebe.jpg"
+      "photoUrl": "images/shachar.jpeg"
     }
   ],
   "transactions": [

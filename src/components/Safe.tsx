@@ -4,16 +4,17 @@ import Card from 'react-bootstrap/Card';
 import { ISafe } from '../types';
 
 function Safe(props: { safe: ISafe }) {
+  const { safe }= props
   return (
     <Card
        bg={'info'}
        key={'info'}
-       style={{ width: '18rem' }}
+       style={{ width: '40rem' }}
        className="mb-2"
      >
-
+      <Card.Img variant="top" src={safe.photoUrl} />
       <Card.Body>
-        <Card.Title>{props.safe.name}</Card.Title>
+        <Card.Title>{safe.name}</Card.Title>
         <Card.Text>
           Some quick example text to build on the card title and make up the
           bulk of the card's content.

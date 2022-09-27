@@ -4,13 +4,16 @@ import Safe from './Safe'
 
 function Main(props: {safes: ISafe[]}) {
   return (
-    <>
+    <ul>
       {props.safes.map(safe => {
-          const props = {safe: safe }
-          return <Safe {...props} />
-        }
+          const props = {safe: safe };
+          return (
+          <li key={safe.id}>
+            <Safe {...props} />
+          </li>
+        )}
       )}
-    </>
+    </ul>
   )
 }
 
