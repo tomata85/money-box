@@ -14,8 +14,6 @@ export function lastWithdrawalDate(safe: ISafe) {
 
 function lastTransactionDate(safe: ISafe, transactionType: TransactionType) {
   const transactionByType = safe.transactions.filter(t => t.type === transactionType)
-  return Math.max(...transactionByType.map(t => {
-    console.log("T.date type is " + t.date);
-    return t.date.getDate();
-  }));
+  const lastTimestamp = Math.max(...transactionByType.map(t => t.timestamp));
+  return new Date(lastTimestamp)
 }

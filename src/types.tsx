@@ -13,7 +13,7 @@ export interface ITransaction {
   "amount": number,
   "type": TransactionType,
   "reason": string,
-  "date": Date
+  "timestamp": number
 }
 
 export enum TransactionType {

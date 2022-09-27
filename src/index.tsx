@@ -4,6 +4,13 @@ import ThemeProvider from 'react-bootstrap/ThemeProvider';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import TimeAgo from 'javascript-time-ago'
+
+import en from 'javascript-time-ago/locale/en.json'
+import he from 'javascript-time-ago/locale/he.json'
+
+TimeAgo.addDefaultLocale(en)
+TimeAgo.addLocale(he)
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
