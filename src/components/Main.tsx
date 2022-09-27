@@ -11,7 +11,7 @@ function Main(props: {safes: ISafe[]}) {
     <>
       <Navbar className="header" bg="dark" variant="dark" sticky="top">
           <Container>
-            <Navbar.Brand>🐽  Money Box</Navbar.Brand>
+            <Navbar.Brand>🐽 Money Box</Navbar.Brand>
           </Container>
       </Navbar>
       <CardGroup>
