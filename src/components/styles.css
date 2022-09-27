@@ -1,5 +1,6 @@
 .safe {
-  margin: 30px
+  margin: 30px;
+  max-width: 340px;
 }
 
 .header {
