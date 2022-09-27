@@ -4,16 +4,19 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { ISafe } from '../types';
 import './styles.css';
+import { savedAmount, lastDepositDate, lastWithdrawalDate } from '../utils'
 
 function Safe(props: { safe: ISafe }) {
   const { safe }= props
   const safeNameText = `הקופה של ${safe.name}`
-  const savingsAmount = `יש לי 15 שקלים בקופה`
-  const goalText = `המטרה הבאה שלי: לרכוש ${safe.goalName} במחיר ${safe.goalAmount} שקלים`
-  const lastDeposit = `הפקדה אחרונה בוצעה לפני 6 ימים`
-  const lastWithrawal = `משיכה אחרונה בוצעה לפני 10 ימים`
-  const daysUntilBonus = `עוד 10 ימים עד לבונוס הבא!`
+  const savingsAmount = `יש לי ${savedAmount(safe)} שקלים בקופה`
+  const goalText = `המטרה הבאה שלי: ${safe.goalName} במחיר ${safe.goalAmount} שקלים`
+  // const lastDeposit = `הפקדה אחרונה בוצעה בתאריך ${lastDepositDate(safe)}`
+  // const lastWithrawal = `משיכה אחרונה בוצעה בתאריך ${lastWithdrawalDate(safe)}`
+  const lastDeposit = `הפקדה אחרונה בוצעה בתאריך`
+  const lastWithrawal = `משיכה אחרונה בוצעה בתאריך`
 
+  const daysUntilBonus = `עוד 10 ימים עד לבונוס הבא!`
 
   return (
     <Card

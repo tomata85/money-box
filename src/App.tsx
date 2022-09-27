@@ -8,10 +8,9 @@ import './App.css';
 function App() {
   const [safes, setSafes] = useState<ISafe[]>([]);
    useEffect(() => {
-      fetch('http://localhost:3000/safes/')
+      fetch('http://localhost:3000/safes?_embed=transactions')
          .then((response) => response.json())
          .then((data) => {
-            console.log(data);
             setSafes(data);
          })
          .catch((err) => {

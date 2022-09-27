@@ -19,9 +19,34 @@
     {
       "id": 1,
       "safeId": 1,
-      "amount": -10,
-      "type": 1,
-      "reason": "סליים"
+      "amount": -9,
+      "type": 2,
+      "reason": "סליים",
+      "date": 1664277942992
+    },
+    {
+      "id": 1,
+      "safeId": 1,
+      "amount": 10,
+      "type": 0,
+      "reason": "הפקדה שבועית",
+      "date": 1664277942992
+    },
+    {
+      "id": 1,
+      "safeId": 2,
+      "amount": 10,
+      "type": 0,
+      "reason": "הפקדה שבועית",
+      "date": 1664277942992
+    },
+    {
+      "id": 2,
+      "safeId": 2,
+      "amount": -7,
+      "type": 2,
+      "reason": "מחברת",
+      "date": 1664277942992
     }
   ]
 }
