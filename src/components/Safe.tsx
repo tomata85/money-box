@@ -22,7 +22,7 @@ function Safe(props: { safe: ISafe }) {
        border={'info'}
        className="mb-2 safe"
      >
-     <Card.Header as="h2">{safeNameText}</Card.Header>
+     <Card.Header className="safe-header" as="h2">{safeNameText}</Card.Header>
       <Card.Img variant="top" src={safe.photoUrl} />
       <Card.Body>
         <Card.Text>{savingsAmount}</Card.Text>

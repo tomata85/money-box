@@ -3,6 +3,10 @@
   max-width: 340px;
 }
 
+.safe-header {
+  text-align: center;
+}
+
 .header {
   /*rtl:ignore*/
   direction:ltr;
