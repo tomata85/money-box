@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { ISafe } from '../types';
+import './styles.css';
 
 function Safe(props: { safe: ISafe }) {
   const { safe }= props
@@ -16,10 +17,9 @@ function Safe(props: { safe: ISafe }) {
 
   return (
     <Card
-       bg={'light'}
+       bg={'info'}
        border={'info'}
-       style={{ width: '30rem' }}
-       className="mb-2"
+       className="mb-2 safe"
      >
      <Card.Header as="h2">{safeNameText}</Card.Header>
       <Card.Img variant="top" src={safe.photoUrl} />

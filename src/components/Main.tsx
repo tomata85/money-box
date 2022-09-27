@@ -1,19 +1,16 @@
 import React from 'react'
 import { ISafe } from '../types'
 import Safe from './Safe'
+import CardGroup from 'react-bootstrap/CardGroup';
 
 function Main(props: {safes: ISafe[]}) {
   return (
-    <ul>
+    <CardGroup>
       {props.safes.map(safe => {
           const props = {safe: safe };
-          return (
-          <li key={safe.id}>
-            <Safe {...props} />
-          </li>
-        )}
+          return (<Safe key={safe.id} {...props} />)}
       )}
-    </ul>
+    </CardGroup>
   )
 }
 
