@@ -3,7 +3,8 @@ export interface ISafe {
   name: string,
   goalAmount: number,
   goalName: string,
-  photoUrl: string
+  photoUrl: string,
+  bonusCountdownInDays: number,
   transactions: ITransaction[]
 }
 

@@ -11,10 +11,10 @@ function Safe(props: { safe: ISafe }) {
   const { safe }= props
   const safeNameText = `הקופה של ${safe.name}`
   const savingsAmount = `יש לי ${savedAmount(safe)} שקלים בקופה`
-  const goalText = `המטרה הבאה שלי: ${safe.goalName} במחיר ${safe.goalAmount} שקלים`
+  const goalText = `המטרה שלי: ${safe.goalName} במחיר ${safe.goalAmount} שקלים`
   const lastDeposit = `הפקדה אחרונה בוצעה `
-  const lastWithrawal = `משיכה אחרונה בוצעה`
-  const daysUntilBonus = `עוד 10 ימים עד לבונוס הבא!`
+  const lastWithrawal = `משיכה אחרונה בוצעה `
+  const daysUntilBonus = `עוד ${safe.bonusCountdownInDays}  ימים עד לבונוס הבא!`
 
   return (
     <Card

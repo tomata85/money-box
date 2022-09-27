@@ -5,14 +5,16 @@
       "name": "דרור",
       "goalAmount": 100,
       "goalName": "לגו",
-      "photoUrl": "images/dror.jpeg"
+      "photoUrl": "images/dror.jpeg",
+      "bonusCountdownInDays": 17
     },
     {
       "id": 2,
       "name": "שחר",
       "goalAmount": 70,
       "goalName": "טרקטור",
-      "photoUrl": "images/shachar.jpeg"
+      "photoUrl": "images/shachar.jpeg",
+      "bonusCountdownInDays": 23
     }
   ],
   "transactions": [
@@ -22,7 +24,7 @@
       "amount": -9,
       "type": 2,
       "reason": "סליים",
-      "timestamp": 1664277942992
+      "timestamp": 1664021559000
     },
     {
       "id": 1,
@@ -38,7 +40,7 @@
       "amount": 10,
       "type": 0,
       "reason": "הפקדה שבועית",
-      "timestamp": 1664277942992
+      "timestamp": 1656331959000
     },
     {
       "id": 2,
@@ -46,7 +48,7 @@
       "amount": -7,
       "type": 2,
       "reason": "מחברת",
-      "timestamp": 1664277942992
+      "timestamp": 1663071159000
     }
   ]
 }
