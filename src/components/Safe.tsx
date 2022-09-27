@@ -6,22 +6,24 @@ import { ISafe } from '../types';
 
 function Safe(props: { safe: ISafe }) {
   const { safe }= props
+  const safeNameText = `הקופה של ${safe.name}`
   const savingsAmount = `יש לי 15 שקלים בקופה`
   const goalText = `המטרה הבאה שלי: לרכוש ${safe.goalName} במחיר ${safe.goalAmount} שקלים`
   const lastDeposit = `הפקדה אחרונה בוצעה לפני 6 ימים`
   const lastWithrawal = `משיכה אחרונה בוצעה לפני 10 ימים`
   const daysUntilBonus = `עוד 10 ימים עד לבונוס הבא!`
 
+
   return (
     <Card
-       bg={'info'}
-       key={'info'}
+       bg={'light'}
+       border={'info'}
        style={{ width: '30rem' }}
        className="mb-2"
      >
+     <Card.Header as="h2">{safeNameText}</Card.Header>
       <Card.Img variant="top" src={safe.photoUrl} />
       <Card.Body>
-        <Card.Title>{safe.name}</Card.Title>
         <Card.Text>{savingsAmount}</Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
