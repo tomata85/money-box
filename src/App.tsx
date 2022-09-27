@@ -8,7 +8,7 @@ import './App.css';
 function App() {
   const [safes, setSafes] = useState<ISafe[]>([]);
    useEffect(() => {
-      fetch('http://localhost:3000/safes?_embed=transactions')
+      fetch('https://money-box-db.herokuapp.com/safes?_embed=transactions')
          .then((response) => response.json())
          .then((data) => {
             setSafes(data);
