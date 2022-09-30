@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ReactTimeAgo from 'react-time-ago'
+import SafeTransactions from './SafeTransactions'
 import { ISafe } from '../types';
 import './styles.css';
 import { savedAmount, lastDepositDate, lastWithdrawalDate } from '../utils'
@@ -38,6 +39,9 @@ function Safe(props: { safe: ISafe }) {
           <ReactTimeAgo date={lastWithdrawalDate(safe)} locale="he-il"/>
         </ListGroup.Item>
         <ListGroup.Item>{daysUntilBonus}</ListGroup.Item>
+        <ListGroup.Item>
+          <SafeTransactions safe={safe} />
+        </ListGroup.Item>
      </ListGroup>
     </Card>
   );

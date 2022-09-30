@@ -17,3 +17,13 @@ function lastTransactionDate(safe: ISafe, transactionType: TransactionType) {
   const lastTimestamp = Math.max(...transactionByType.map(t => t.timestamp));
   return new Date(lastTimestamp)
 }
+
+export function ToString(type: TransactionType) {
+  const strings = {
+    [TransactionType.Deposit]: 'הפקדה',
+    [TransactionType.BonusDeposit]: 'הפקדת בונוס',
+    [TransactionType.Withdrawal]: 'משיכה'
+  }
+
+  return strings[type];
+}
