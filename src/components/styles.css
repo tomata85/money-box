@@ -7,16 +7,10 @@
   text-align: center;
 }
 
-.header {
+.suppress-rtl {
   /*rtl:ignore*/
   direction:ltr;
   /*rtl:ignore*/
-}
-
-.ltr-table-cell {
-  /*rtl:ignore*/
-  direction:ltr;
-  /*rtl:ignore*/  
 }
 
 .card-list {

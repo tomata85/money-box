@@ -17,12 +17,12 @@ function SafeTransactions(props: {safe: ISafe}) {
         </thead>
         <tbody>
           {props.safe.transactions.map(tran => (
-            <tr>
+            <tr key={tran.id}>
               <td>
                 <ReactTimeAgo date={new Date(tran.timestamp)} locale="he-il"/>
               </td>
               <td>{ToString(tran.type)}</td>
-              <td className="ltr-table-cell">{tran.amount}</td>
+              <td className="suppress-rtl">{tran.amount}</td>
               <td>{tran.reason}</td>
             </tr>
           ))}

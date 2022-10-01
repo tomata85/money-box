@@ -8,14 +8,15 @@ import { ISafe } from '../types';
 import './styles.css';
 import { savedAmount, lastDepositDate, lastWithdrawalDate } from '../utils'
 
-function Safe(props: { safe: ISafe }) {
-  const { safe }= props
-  const safeNameText = `הקופה של ${safe.name}`
-  const savingsAmount = `יש לי ${savedAmount(safe)} שקלים בקופה`
-  const goalText = `המטרה שלי: ${safe.goalName} במחיר ${safe.goalAmount} שקלים`
-  const lastDeposit = `הפקדה אחרונה בוצעה `
-  const lastWithrawal = `משיכה אחרונה בוצעה `
-  const daysUntilBonus = `עוד ${safe.bonusCountdownInDays}  ימים עד לבונוס הבא!`
+function Safe(props: { safe: ISafe, onAddTransaction: () => void }) {
+  const { safe }= props;
+  const safeNameText = `הקופה של ${safe.name}`;
+  const savingsAmount = `יש לי ${savedAmount(safe)} שקלים בקופה`;
+  const goalText = `המטרה שלי: ${safe.goalName} במחיר ${safe.goalAmount} שקלים`;
+  const lastDeposit = `הפקדה אחרונה בוצעה `;
+  const lastWithrawal = `משיכה אחרונה בוצעה `;
+  const daysUntilBonus = `עוד ${safe.bonusCountdownInDays} ימים עד לבונוס הבא!`;
+  const addTransactionText = `תנועה חדשה`;
 
   return (
     <Card
@@ -27,6 +28,7 @@ function Safe(props: { safe: ISafe }) {
       <Card.Img variant="top" src={safe.photoUrl} />
       <Card.Body>
         <Card.Text>{savingsAmount}</Card.Text>
+        <Button onClick={props.onAddTransaction}>{addTransactionText}</Button>
       </Card.Body>
       <ListGroup className="list-group-flush">
         <ListGroup.Item>{goalText}</ListGroup.Item>
@@ -46,19 +48,5 @@ function Safe(props: { safe: ISafe }) {
     </Card>
   );
 }
-// <Card.Img variant="top" src="https://c1.wallpaperflare.com/preview/664/611/663/child-happy-smiling-son-man-bebe.jpg" />
+
 export default Safe;
-//   return (
-//     <Card >
-//       <Card.Img variant="top" src="holder.js/100px180" />
-//       <Card.Body>
-//         <Card.Title>Card Title</Card.Title>
-//         <Card.Text>
-//           Some quick example text to build on the card title and make up the
-//           bulk of the card's content.
-//         </Card.Text>
-//         <Button variant="primary">Go somewhere</Button>
-//       </Card.Body>
-//     </Card>
-//   );
-// }

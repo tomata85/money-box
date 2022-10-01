@@ -23,7 +23,7 @@ const title = 'הבנק של משפחת גונן'
 
 return (
     <>
-      <Navbar className="header" bg="dark" variant="dark" sticky="top">
+      <Navbar className="suppress-rtl" bg="dark" variant="dark" sticky="top">
           <Container>
             <Navbar.Brand>🐽 Money Box</Navbar.Brand>
           </Container>
