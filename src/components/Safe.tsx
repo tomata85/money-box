@@ -16,7 +16,7 @@ function Safe(props: { safe: ISafe, onAddTransaction: () => void }) {
   const lastDeposit = `הפקדה אחרונה בוצעה `;
   const lastWithrawal = `משיכה אחרונה בוצעה `;
   const daysUntilBonus = `עוד ${safe.bonusCountdownInDays} ימים עד לבונוס הבא!`;
-  const addTransactionText = `תנועה חדשה`;
+  const addTransactionText = `חדש`;
 
   return (
     <Card
@@ -28,7 +28,6 @@ function Safe(props: { safe: ISafe, onAddTransaction: () => void }) {
       <Card.Img variant="top" src={safe.photoUrl} />
       <Card.Body>
         <Card.Text>{savingsAmount}</Card.Text>
-        <Button onClick={props.onAddTransaction}>{addTransactionText}</Button>
       </Card.Body>
       <ListGroup className="list-group-flush">
         <ListGroup.Item>{goalText}</ListGroup.Item>
@@ -43,6 +42,9 @@ function Safe(props: { safe: ISafe, onAddTransaction: () => void }) {
         <ListGroup.Item>{daysUntilBonus}</ListGroup.Item>
         <ListGroup.Item>
           <SafeTransactions safe={safe} />
+          <Button className="mb-2 mr-auto" onClick={props.onAddTransaction}>
+            {addTransactionText}
+          </Button>
         </ListGroup.Item>
      </ListGroup>
     </Card>

@@ -17,7 +17,7 @@ function SafeTransactions(props: {safe: ISafe}) {
         </thead>
         <tbody>
           {props.safe.transactions.map(tran => (
-            <tr key={tran.id}>
+            <tr key={tran.timestamp}>
               <td>
                 <ReactTimeAgo date={new Date(tran.timestamp)} locale="he-il"/>
               </td>

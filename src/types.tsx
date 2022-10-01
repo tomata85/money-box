@@ -9,7 +9,6 @@ export interface ISafe {
 }
 
 export interface ITransaction {
-  "id": number,
   "safeId": number,
   "amount": number,
   "type": TransactionType,
