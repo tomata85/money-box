@@ -8,6 +8,7 @@ import { ISafe, ITransaction, TransactionType } from '../types'
 function TransactionActionModal(
   props: {safe: ISafe, onClose: (newTran: ITransaction) => void}) {
   const defaultReason = 'הפקדה שבועית';
+  const defaultAmount = 10;
   const header = `${props.safe.name}: הפקדה/משיכה חדשה`;
   const howMuchText = 'סכום להפקדה';
   const reasonText = 'סיבה';
@@ -16,7 +17,7 @@ function TransactionActionModal(
   const [newTran, setNewTran] = useState<ITransaction>({
     safeId: props.safe.id,
     timestamp: Date.now(),
-    amount: 0,
+    amount: defaultAmount,
     type: TransactionType.Deposit,
     reason: defaultReason
   });
@@ -41,6 +42,7 @@ function TransactionActionModal(
             <InputGroup.Text id="basic-addon2">ש"ח</InputGroup.Text>
             <Form.Control
               type="number"
+              defaultValue={defaultAmount}
               onChange={e => {
                 newTran.amount = parseInt(e.currentTarget.value)
                 setNewTran(newTran)

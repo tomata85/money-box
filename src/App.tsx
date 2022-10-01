@@ -32,6 +32,10 @@ function App() {
       .catch((err) => {
         console.log(err.message);
       });
+
+    const safe = safes.find(safe => safe.id === tran.safeId);
+    safe!.transactions.push(tran);
+    setSafes(safes)
   }
 
   const title = 'הבנק של משפחת גונן'
