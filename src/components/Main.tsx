@@ -5,19 +5,31 @@ import TransactionActionModal from './TransactionActionModal';
 import CardGroup from 'react-bootstrap/CardGroup';
 
 function Main(props: {safes: ISafe[]}) {
-  const [showTransactionModal, setShowTransactionModal] = useState<boolean>(false);
+  const [showTransactionModal, setShowTransactionModal]
+    = useState<boolean>(false);
+  const [trasnactionSafe, setTransactionSafe] = useState<ISafe>();
+
+  const onOpenTransactionModal = (safe: ISafe) => {
+    setTransactionSafe(safe);
+    setShowTransactionModal(true)
+  }
+
+  const onCloseTransactionModal = () => {
+    setTransactionSafe(undefined);
+    setShowTransactionModal(false)
+  }
 
   return (
     <>
       { showTransactionModal &&
         <TransactionActionModal
-          safe={props.safes[0]}
-          onClose={() => setShowTransactionModal(false)} />}
+          safe={trasnactionSafe!}
+          onClose={() => onCloseTransactionModal()} />}
       <CardGroup className="card-list">
         {props.safes.map(safe => {
             const props = {
               safe: safe,
-              onAddTransaction: () => setShowTransactionModal(true),
+              onAddTransaction: () => onOpenTransactionModal(safe),
             };
             return (<Safe key={safe.id} {...props} />)}
         )}
