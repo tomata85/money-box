@@ -7,13 +7,18 @@ import { ISafe, ITransaction, TransactionType } from '../types'
 
 function TransactionActionModal(
   props: {safe: ISafe, onClose: (newTran: ITransaction) => void}) {
+  const defaultReason = 'הפקדה שבועית';
+  const header = `${props.safe.name}: הפקדה/משיכה חדשה`;
+  const howMuchText = 'סכום להפקדה';
+  const reasonText = 'סיבה';
+
   const [show, setShow] = useState(true);
   const [newTran, setNewTran] = useState<ITransaction>({
     safeId: props.safe.id,
     timestamp: Date.now(),
     amount: 0,
     type: TransactionType.Deposit,
-    reason: ''
+    reason: defaultReason
   });
 
   const handleClose = () => {
@@ -24,11 +29,6 @@ function TransactionActionModal(
   const handleSave = () => {
     handleClose()
   }
-
-  const header = `${props.safe.name}: הפקדה/משיכה חדשה`;
-  const howMuchText = 'סכום להפקדה';
-  const reasonText = 'סיבה';
-  const defaultReason = 'הפקדה שבועית';
 
   return (
     <>
