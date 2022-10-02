@@ -14,8 +14,10 @@ function Main(
     setShowTransactionModal(true);
   }
 
-  const onCloseTransactionModal = (newTran: ITransaction) => {
-    props.onAddNewTransaction(newTran);
+  const onCloseTransactionModal = (newTran?: ITransaction) => {
+    if(newTran) {
+      props.onAddNewTransaction(newTran);
+    }
     setTransactionSafe(undefined);
     setShowTransactionModal(false);
   }
