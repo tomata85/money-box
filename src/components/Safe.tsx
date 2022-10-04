@@ -15,7 +15,7 @@ function Safe(props: { safe: ISafe, onAddTransaction: () => void }) {
   const goalText = `המטרה שלי: ${safe.goalName} במחיר ${safe.goalAmount} שקלים`;
   const lastDeposit = `הפקדה אחרונה בוצעה `;
   const lastWithrawal = `משיכה אחרונה בוצעה `;
-  const daysUntilBonus = `עוד ${safe.bonusCountdownInDays} ימים עד לבונוס הבא!`;
+  const nextBonus = `הבונוס הקרוב `;
   const addTransactionText = `חדש`;
 
   return (
@@ -39,7 +39,10 @@ function Safe(props: { safe: ISafe, onAddTransaction: () => void }) {
           {lastWithrawal}
           <ReactTimeAgo date={lastWithdrawalDate(safe)} locale="he-il"/>
         </ListGroup.Item>
-        <ListGroup.Item>{daysUntilBonus}</ListGroup.Item>
+        <ListGroup.Item>
+          {nextBonus}
+          <ReactTimeAgo date={new Date(safe.nextBonusTimestamp)} locale="he-il"/>
+        </ListGroup.Item>
         <ListGroup.Item>
           <SafeTransactions safe={safe} />
           <Button className="mb-2 mr-auto" onClick={props.onAddTransaction}>

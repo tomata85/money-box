@@ -4,7 +4,7 @@ export interface ISafe {
   goalAmount: number,
   goalName: string,
   photoUrl: string,
-  bonusCountdownInDays: number,
+  nextBonusTimestamp: number,
   transactions: ITransaction[]
 }
 
@@ -13,7 +13,7 @@ export interface ITransaction {
   "amount": number,
   "type": TransactionType,
   "reason": string,
-  "nextBonusTimestamp": number
+  "timestamp": number
 }
 
 export enum TransactionType {
