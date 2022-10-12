@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { ISafe, ITransaction } from './types'
+import { ISafe, ITransaction } from './types';
 import Main from './components/Main';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import './App.css'
+import './App.css';
+import { DB_URL } from './globals';
 
 function App() {
-  const dbUrl = "https://money-box-db.herokuapp.com";
   const [safes, setSafes] = useState<ISafe[]>([]);
 
   useEffect(() => {
-    fetch(`${dbUrl}/safes?_embed=transactions`)
+    fetch(`${DB_URL}/safes?_embed=transactions`)
       .then((response) => response.json())
       .then((data) => {
         setSafes(data);
@@ -28,7 +27,7 @@ function App() {
         body: JSON.stringify(tran)
     };
 
-    fetch(`${dbUrl}/transactions`, requestOptions)
+    fetch(`${DB_URL}/transactions`, requestOptions)
       .catch((err) => {
         console.log(err.message);
       });
