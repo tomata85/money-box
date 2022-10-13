@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import { ISafe, ITransaction } from '../types';
+import {
+  needsBonusCountdownReset,
+  needsBonusDeposit,
+  createBonusDepositFor,
+  nextBonusTimestamp
+} from '../utils';
 import Safe from './Safe';
 import TransactionActionModal from './TransactionActionModal';
 import CardGroup from 'react-bootstrap/CardGroup';
@@ -7,7 +13,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
 function Main(
   props: {safes: ISafe[], onAddNewTransaction: (tran: ITransaction) => void}) {
   const [showTransactionModal, setShowTransactionModal] = useState(false);
-  const [trasnactionSafe, setTransactionSafe] = useState<ISafe>();
+  const [transactionSafe, setTransactionSafe] = useState<ISafe>();
 
   const onOpenTransactionModal = (safe: ISafe) => {
     setTransactionSafe(safe);
@@ -17,7 +23,17 @@ function Main(
   const onCloseTransactionModal = (newTran?: ITransaction) => {
     if(newTran) {
       props.onAddNewTransaction(newTran);
+
+      if(needsBonusCountdownReset(newTran)) {
+        transactionSafe!.nextBonusTimestamp = nextBonusTimestamp();
+      }
+      else if(needsBonusDeposit(transactionSafe!, newTran)) {
+        const bonusDeposit = createBonusDepositFor(transactionSafe!);
+        transactionSafe!.nextBonusTimestamp = nextBonusTimestamp();
+        props.onAddNewTransaction(bonusDeposit);
+      }
     }
+
     setTransactionSafe(undefined);
     setShowTransactionModal(false);
   }
@@ -26,7 +42,7 @@ function Main(
     <>
       { showTransactionModal &&
         <TransactionActionModal
-          safe={trasnactionSafe!}
+          safe={transactionSafe!}
           onClose={(newTran) => onCloseTransactionModal(newTran)} />}
       <CardGroup className="card-list">
         {props.safes.map(safe => {

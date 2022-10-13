@@ -3,6 +3,7 @@ import { ISafe, ITransaction } from './types';
 import Main from './components/Main';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
+import { call, requestOptions } from './api';
 import './App.css';
 import { DB_URL } from './globals';
 
@@ -21,20 +22,13 @@ function App() {
   }, []);
 
   const addNewTransaction = (tran: ITransaction) => {
-    const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(tran)
-    };
-
-    fetch(`${DB_URL}/transactions`, requestOptions)
-      .catch((err) => {
-        console.log(err.message);
-      });
+    call(`${DB_URL}/transactions`, requestOptions('POST', tran));
 
     const safe = safes.find(safe => safe.id === tran.safeId);
     safe!.transactions.push(tran);
-    setSafes(safes)
+    setSafes(safes);
+
+    call(`${DB_URL}/safes/${safe!.id}`, requestOptions('PUT', safe));
   }
 
   const title = 'הבנק של משפחת גונן'
