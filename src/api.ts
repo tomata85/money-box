@@ -12,9 +12,6 @@ function requestOptions(method: string, body?: any) {
 }
 
 function call(url: string, requestOptions: any) {
-  console.log("WITH: ");
-  console.log(requestOptions);
-
   return fetch(url, requestOptions)
     .catch((err) => {
       console.log(err.message);

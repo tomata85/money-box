@@ -27,9 +27,11 @@ function App() {
     const safe = safes.find(safe => safe.id === tran.safeId);
     safe!.transactions.push(tran);
     setSafes(safes);
+  };
 
-    updateSafeBonus(safe!);
-  }
+  const onUpdateBonusTimestamp = (safe: ISafe) => {
+    updateSafeBonus(safe);
+  };
 
   const title = 'הבנק של משפחת גונן'
 
@@ -42,7 +44,10 @@ function App() {
         </Navbar>
         <div className='app-body'>
           <h1 className='app-title'>{title}</h1>
-          <Main safes={safes} onAddNewTransaction={onAddNewTransaction} />
+          <Main
+            safes={safes}
+            onAddNewTransaction={onAddNewTransaction}
+            onUpdateBonusTimestamp={onUpdateBonusTimestamp} />
         </div>
       </>
     );
