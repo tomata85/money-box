@@ -3,7 +3,7 @@ import { ISafe, ITransaction } from './types';
 import Main from './components/Main';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-import { call, requestOptions } from './api';
+import { addTransaction, updateSafeBonus } from './api';
 import './App.css';
 import { DB_URL } from './globals';
 
@@ -21,14 +21,14 @@ function App() {
       });
   }, []);
 
-  const addNewTransaction = (tran: ITransaction) => {
-    call(`${DB_URL}/transactions`, requestOptions('POST', tran));
+  const onAddNewTransaction = (tran: ITransaction) => {
+    addTransaction(tran);
 
     const safe = safes.find(safe => safe.id === tran.safeId);
     safe!.transactions.push(tran);
     setSafes(safes);
 
-    call(`${DB_URL}/safes/${safe!.id}`, requestOptions('PUT', safe));
+    updateSafeBonus(safe!);
   }
 
   const title = 'הבנק של משפחת גונן'
@@ -42,7 +42,7 @@ function App() {
         </Navbar>
         <div className='app-body'>
           <h1 className='app-title'>{title}</h1>
-          <Main safes={safes} onAddNewTransaction={addNewTransaction} />
+          <Main safes={safes} onAddNewTransaction={onAddNewTransaction} />
         </div>
       </>
     );
